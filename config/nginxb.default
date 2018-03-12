@@ -1,0 +1,13 @@
+upstream myproject {
+    server 192.168.33.11:80;
+    server 192.168.33.12:80;
+  }
+
+  server {
+    listen 80;
+    server_name www.domain.com;
+    location / {
+      proxy_pass http://myproject;
+    }
+  }
+
